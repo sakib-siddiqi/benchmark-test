@@ -8,7 +8,7 @@ const port = 8080;
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (_req, res) => {
-    res.send('Bun!');
+    res.send('Express!');
 });
 
 app.listen(port, () => {
