@@ -1,12 +1,16 @@
 import express from 'express';
+import path from 'path';
 
 const app = express();
 const port = 8080;
 
-app.get('/', (req, res) => {
+// Serve static files from public directory (without /public prefix)
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/', (_req, res) => {
     res.send('Bun!');
 });
 
-const server = app.listen(port, () => {
+app.listen(port, () => {
     console.log(`Listening on http://localhost:${port}`);
 });
